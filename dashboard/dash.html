@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGRI ONE</title>
+    <link rel="stylesheet" href="dash.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <span class="logo-text">Agri ONE</span>
+            </div>
+            
+            <nav class="nav-menu">
+                <div class="nav-item active">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Users</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-book"></i>
+                    <span>Courses</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-file-text"></i>
+                    <span>Blogs</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-certificate"></i>
+                    <span>Certificates</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-user-plus"></i>
+                    <span>Create User</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </div>
+            </nav>
+        </aside>
+
+ <!---Main Content--->
+    <main class="main-content">
+    <header class="header">
+    <div class="header-left">
+        <button class="back-btn">
+             <i class="fas fa-arrow-left"></i>
+        </button>
+        <div class="search-box">
+    <i class="fas fa-search"></i>
+    <input type="text" placeholder="Search">
+    </div>
+    </div>
+    <div class="header-right">
+      <button class="header-btn">
+       <i class="fas fa-bell"></i>
+        </button>
+        <button class="header-btn">
+         <i class="fas fa-comment"></i>
+        </button>
+          <button class="header-btn">
+           <i class="fas fa-cog"></i>
+             </button>
+            <div class="user-avatar">
+                 <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=40&h=40" alt="User">
+                    </div>
+                </div>
+             </header>
+
+            <div class="content-wrapper">
+                <div class="main-section">
+                    <!-- User Chart -->
+                    <div class="card chart-card">
+                        <div class="card-header">
+                            <h3>Total User</h3>
+                            <span class="user-count">240</span>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="userChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Referral Table -->
+                    <div class="card table-card">
+                        <div class="card-header">
+                            <h3>Referral tracking</h3>
+                            <div class="table-controls">
+                                <button class="table-btn">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                                <div class="search-box small">
+                                    <i class="fas fa-search"></i>
+                                    <input type="text" placeholder="Search by Subject">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-wrapper">
+                            <table id="referralTable">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Referrer</th>
+                                        <th>Referral</th>
+                                        <th>Commission</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                            <div class="pagination">
+                                <button class="prev-btn">Previous</button>
+                                <span>Page 1 of 2</span>
+                                <button class="next-btn">Next</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Courses Table -->
+                    <div class="card table-card">
+                        <div class="card-header">
+                            <h3>Courses</h3>
+                            <div class="table-controls">
+                                <button class="table-btn">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                                <div class="search-box small">
+                                    <i class="fas fa-search"></i>
+                                    <input type="text" placeholder="Search by Subject">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-wrapper">
+                            <table id="coursesTable">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Course Name</th>
+                                        <th>Instructor</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                            <div class="pagination">
+                                <button class="prev-btn">Previous</button>
+                                <span>Page 1 of 2</span>
+                                <button class="next-btn">Next</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Users Table -->
+                    <div class="card table-card">
+                        <div class="card-header">
+                            <h3>Users</h3>
+                            <div class="table-controls">
+                                <button class="table-btn">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                                <div class="search-box small">
+                                    <i class="fas fa-search"></i>
+                                    <input type="text" placeholder="Search by Subject">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-wrapper">
+                            <table id="usersTable">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Role</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                            <div class="pagination">
+                                <button class="prev-btn">Previous</button>
+                                <span>Page 1 of 10</span>
+                                <button class="next-btn">Next</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <aside class="right-sidebar">
+                    <!-- Courses Progress -->
+     <div class="card progress-card">
+                        <div class="card-header">
+                            <h3>Courses</h3>
+                            <button class="card-menu-btn">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </button>
+                        </div>
+                        <div class="progress-chart">
+                            <canvas id="progressChart"></canvas>
+                        </div>
+                        <div class="progress-legend">
+                            <div class="legend-item">
+                                <div class="legend-color purple"></div>
+                                <span>Approved</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color yellow"></div>
+                                <span>waiting for approval</span>
+                            </div>
+                        </div>
+                        <div class="progress-footer">
+                            <i class="fas fa-download"></i>
+                            <span>April 2024 →</span>
+                        </div>
+                    </div>
+
+                    <!-- Calendar -->
+   <div class="calendar-widget">
+    <div class="calendar-header">
+      <span id="monthYear"></span>
+      <div class="calendar-controls">
+        <button onclick="changeMonth(-1)">&lt;</button>
+        <button onclick="changeMonth(1)">&gt;</button>
+      </div>
+    </div>
+    <div class="calendar-body">
+      <div class="calendar-grid" id="calendar">
+      </div>
+    </div>
+  </div>
+     <!-- Manage Users -->
+    <div class="card manage-users-card">
+        <div class="card-header">
+              <h3>Manage Users</h3>
+                 <div class="table-controls small">
+                    <button class="table-btn">
+                     <i class="fas fa-download"></i>
+                     </button>
+                    <div class="search-box mini">
+                 <i class="fas fa-search"></i>
+                 <input type="text" placeholder="Search by Subject">
+                 </div>
+                </div>
+            </div>
+         <div class="mini-table-wrapper">
+     <table class="mini-table">
+         <thead>
+              <tr>
+             <th>No</th>
+                <th>Name</th>
+                     <th>Date</th>
+                         <th>Action</th>
+                         <th>View</th>
+                         </tr>
+                         </thead>
+                         <tbody id="manageUsersBody">
+                         </tbody>
+                         </table>
+                         <div class="pagination mini">
+                        <button class="prev-btn">Previous</button>
+                        <span>Page 1 of 1</span>
+                        <button class="next-btn">Next</button>
+                         </div>
+                        </div>
+                    </div>
+
+                    <!-- Emails -->
+                    <div class="card emails-card">
+                        <div class="card-header">
+                            <h3>Emails</h3>
+                            <button class="card-menu-btn">
+                                <i class="fas fa-plus-circle"></i>
+                            </button>
+                        </div>
+                        <div class="emails-list" id="emailsList">
+                        </div>
+                    </div>
+
+                    <!-- Schedule -->
+                    <div class="card schedule-card">
+                        <div class="card-header">
+                            <h3>Monday</h3>
+                            <div class="calendar-nav">
+                                <button><i class="fas fa-chevron-left"></i></button>
+                                <button><i class="fas fa-chevron-right"></i></button>
+                            </div>
+                        </div>
+                        <div class="schedule-list" id="scheduleList">
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </main>
+    </div>
+
+    <script src="dash.js"></script>
+</body>
+</html>
